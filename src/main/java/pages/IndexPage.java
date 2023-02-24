@@ -21,6 +21,23 @@ public class IndexPage extends BasePageClass{
     private final By registrujSe = By.xpath("//button[@name='login']");
     private final By registrationWelcome = By.xpath("//div[@class='uk-width-1-1']/div/p/text()");
 
+    private final By prijaviSe = By.cssSelector(".js_ga-event.uk-float-left");
+    private final By mailLocator = By.xpath("//input[@id='username_header']");
+    private final By dalje = By.xpath("//button[@type='button']");
+    private final By passwordLocator2 = By.xpath("//input[@id='password_header']");
+    private final By prijaviSeNaProfil = By.xpath("//button[.='Prijavi se']");
+    private final By mojProfil = By.xpath("//div[@class='uk-float-left']");
+    private final By podesavanja= By.xpath("//a[.='Podešavanja']");
+    private final By imeClick = By.xpath("//input[@id='first_name']");
+    private final By prezimeClick = By.xpath("//input[@id='last_name']");
+    private final By adresaClick = By.xpath("//input[@id='address']");
+    private final By gradClick = By.xpath("//input[@id='city']");
+    private final By postanskiBrojClick = By.xpath("//input[@id='zip_code']");
+    private final By telefonClick = By.xpath("//input[@id='cellphone']");
+    private final By odaberiteOkrugClick = By.xpath("//span[.=' Odaberite okrug']");
+    private final By sumadijskiOkrug = By.xpath("//label[text()='Šumadijski']");
+    private final By sacuvaj = By.xpath("//button[.='Sačuvaj']");
+    private final By odjava = By.cssSelector(".uk-nav.uk-nav-dropdown  a[title='Odjavite se iz sistema']");
 
     public IndexPage (WebDriver driver) {super(driver);}
 
@@ -73,6 +90,87 @@ public class IndexPage extends BasePageClass{
         Assert.assertEquals(registrationWelcomeText, text);
         return this;
     }
+    public IndexPage prijava(){
+        clickButton(prijaviSe);
+        return this;
+    }
+    public IndexPage unesiEmailClick(){
+        clickButton(mailLocator);
+        return this;
+    }
+    public IndexPage unesiEmail(String email){
+        WebElement unesiEmailField = waitForWebElementToBeVisible(mailLocator, TimeDelay.DELAY_3_SEC);
+        clearAndTypeTextToWebElement(unesiEmailField,email);
+        return this;
+    }
+    public IndexPage dalje(){
+        clickButton(dalje);
+        return this;
+    }
+    public IndexPage unesiPass(String password){
+        WebElement unesiPassField = waitForWebElementToBeVisible(passwordLocator2, TimeDelay.DELAY_3_SEC);
+        clearAndTypeTextToWebElement(unesiPassField, password);
+        return this;
+    }
+    public IndexPage prijavaProfil(){
+        clickButton(prijaviSeNaProfil);
+        return this;
+    }
+    public IndexPage mojProfil(){
+        clickButton(mojProfil);
+        return this;
+    }
+    public IndexPage podesavanja(){
+        clickButton(podesavanja);
+        return this;
+    }
+    public IndexPage unesiIme(String ime){
+        WebElement imeTextField = waitForWebElementToBeVisible(imeClick, TimeDelay.DELAY_3_SEC);
+        clearAndTypeTextToWebElement( imeTextField, ime);
+        return this;
+    }
+    public IndexPage unesiPrezime(String prezime){
+        WebElement prezimeTextField = waitForWebElementToBeVisible(prezimeClick, TimeDelay.DELAY_3_SEC);
+        clearAndTypeTextToWebElement(prezimeTextField, prezime);
+        return this;
+    }
+    public IndexPage unesiAdresu(String adresa){
+        WebElement adresaTextField = waitForWebElementToBeVisible(adresaClick, TimeDelay.DELAY_3_SEC);
+        clearAndTypeTextToWebElement(adresaTextField, adresa);
+        return this;
+    }
+    public IndexPage unesiGrad(String grad){
+        WebElement gradTextField = waitForWebElementToBeVisible(gradClick, TimeDelay.DELAY_3_SEC);
+        clearAndTypeTextToWebElement(gradTextField, grad);
+        return this;
+    }
+    public IndexPage unesiPostanskiBroj(String broj){
+        WebElement postanskiTextField = waitForWebElementToBeVisible(postanskiBrojClick,TimeDelay.DELAY_3_SEC);
+        clearAndTypeTextToWebElement(postanskiTextField, broj);
+        return this;
+    }
+    public IndexPage odaberiOkrug(){
+        clickButton(odaberiteOkrugClick);
+        return this;
+    }
+    public IndexPage sumadijskiOkrug(){
+        clickButton(sumadijskiOkrug);
+        return this;
+    }
+    public IndexPage unesiTelefon(String telefon){
+        WebElement unesiTelefon = waitForWebElementToBeVisible(telefonClick, TimeDelay.DELAY_3_SEC);
+        clearAndTypeTextToWebElement(unesiTelefon, telefon);
+        return this;
+    }
+    public IndexPage sacuvajProfil(){
+        clickButton(sacuvaj);
+        return this;
+    }
+    public IndexPage odjava(){
+        clickButton(odjava);
+        return this;
+    }
+
 
 
 
