@@ -38,6 +38,11 @@ public class IndexPage extends BasePageClass{
     private final By sumadijskiOkrug = By.xpath("//label[text()='Šumadijski']");
     private final By sacuvaj = By.xpath("//button[.='Sačuvaj']");
     private final By odjava = By.cssSelector(".uk-nav.uk-nav-dropdown  a[title='Odjavite se iz sistema']");
+    private final By popUp = By.xpath("//button[text()='U REDU']");
+    private final By uspesnaIzmenaLocator = By.xpath("//div[@class='uk-alert uk-alert-success']");
+    private final By notificationLocator = By.xpath("//span[@class='icon-notification-icon']");
+    private final By notificationTrashLocator = By.xpath("//i[@class='uk-icon-trash js_ga-event']");
+
 
     public IndexPage (WebDriver driver) {super(driver);}
 
@@ -166,12 +171,25 @@ public class IndexPage extends BasePageClass{
         clickButton(sacuvaj);
         return this;
     }
-    public IndexPage odjava(){
+    public IndexPage odjava() {
         clickButton(odjava);
         return this;
     }
-
-
-
+    public IndexPage popUpClick(){
+        clickButton(popUp);
+        return this;
+    }
+    public IndexPage profileMove(){
+        moveWithoutClick(mojProfil);
+        return this;
+    }
+    public IndexPage notificationClick(){
+        clickButton(notificationLocator);
+        return this;
+    }
+    public IndexPage notificationDelete(){
+        clickButton(notificationTrashLocator);
+        return this;
+    }
 
 }

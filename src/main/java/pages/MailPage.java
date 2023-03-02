@@ -16,7 +16,7 @@ public class MailPage extends BasePageClass{
     private final By signInButton = By.cssSelector("form[name='loginForm'] > .button.button-large.button-solid-norm.mt1-5.w100");
     private final By blancClick = By.cssSelector(".p1 .flex:nth-child(4) .text-bold");
     private final By clickMailPolovniA = By.xpath("//span[.='PolovniAutomobili']");
-    private final By clickMailAktivacija = By.cssSelector("[title='Aktivirajte Vaš nalog']");
+    private final By clickMailAktivacija = By.xpath("//span[@title='noreply@polovniautomobili.com']");
     private final By linkConfirmation = By.cssSelector(".modal-two-footer [aria-busy='false']:nth-of-type(2)");
 
     public MailPage (WebDriver driver) {super(driver);}
@@ -63,10 +63,4 @@ public class MailPage extends BasePageClass{
         clickButton(linkConfirmation);
         return this;
     }
-
-
-
-
-
-
 }

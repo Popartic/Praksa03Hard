@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -58,7 +59,7 @@ public abstract class BasePageClass {
 
     //metoda koja radi klik
     protected void clickButton(By locator) {
-        WebElement element = waitForWebElementToBeVisible(locator, TimeDelay.DELAY_3_SEC);
+        WebElement element = waitForWebElementToBeVisible(locator, TimeDelay.DELAY_5_SEC);
         clickOnWebElement(element);
     }
 
@@ -68,7 +69,15 @@ public abstract class BasePageClass {
         clickOnWebElement(element);
     }
     //metoda koja cita text sa stranice
-    protected String getTextFromWebElement(WebElement element) {
-        return element.getText();
+    protected String getTextFromWebElement(WebElement element) {return element.getText();
+    }
+
+    //move without click
+    protected void moveWithoutClick(By locator){
+        Actions actions = new Actions(driver);
+        WebElement element = waitForWebElementToBeVisible(locator, TimeDelay.DELAY_3_SEC);
+        actions.moveToElement(element);
+        actions.perform();
     }
 }
+

@@ -15,6 +15,7 @@ public class StandardData extends RandomGenerator{
     public static final String POSTANSKI_BROJ = "34000";
     public static final String BROJ_TELEFONA = "063111222";
     public static final String REGISTRATION_WELCOME_TEXT = "Hvala na registraciji!";
+    public static final String IZMENA_PROFILA_TEXT = "Uspešno si izmenio tvoje podatke";
 
 
 }
